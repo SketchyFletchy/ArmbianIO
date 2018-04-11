@@ -18,10 +18,10 @@ fi
 if ! command -v pip
 then
 	sudo apt-get -y install python-pip
-	sudo -H pip install --upgrade pip setuptools
+	pip install --upgrade pip setuptools
 	sudo apt-get -y purge python-pip
 	sudo apt -y autoremove
-	sudo -H pip install --upgrade ctypesgen
+	pip install --user --upgrade ctypesgen
 fi
 
 # Compile armbian as shared library
@@ -39,4 +39,4 @@ touch armbianio/__init__.py
 ctypesgen.py -o armbianio/armbianio.py -l /usr/local/lib/libarmbianio.so ../armbianio.h
 
 # Install Python package
-sudo -H pip install -e .
+pip install --user -e .
