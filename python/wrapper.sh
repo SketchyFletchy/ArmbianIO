@@ -21,8 +21,9 @@ then
 	pip install --upgrade pip setuptools
 	sudo apt-get -y purge python-pip
 	sudo apt -y autoremove
-	pip install --user --upgrade ctypesgen
 fi
+pip install --user --upgrade ctypesgen
+
 
 # Compile armbian as shared library
 gcc -c -Wall -O2 -fPIC ../armbianio.c
